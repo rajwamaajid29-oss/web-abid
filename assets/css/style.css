@@ -1,44 +1,60 @@
+/* ==========================================================================
+   TABLE OF CONTENTS
+   --------------------------------------------------------------------------
+   1.  Custom properties
+   2.  Reset
+   3.  Reused styles
+   4.  Main
+   5.  Sidebar
+   6.  Navbar
+   7.  About (about, service, hobbies, testimonials, modal, clients)
+   8.  Resume (timeline, hard skills, soft skills)
+   9.  Portfolio
+   10. Certificates
+   11. Contact
+   12. Responsive (450px, 580px, 768px, 1024px, 1250px)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. CUSTOM PROPERTIES
+   ========================================================================== */
+
 :root {
 
-  /**
-   * colors
-   */
-
-  /* gradient */
-
+  /* ---------- gradients ---------- */
   --bg-gradient-onyx: linear-gradient(
-    to bottom right, 
-    hsl(240, 1%, 25%) 3%, 
+    to bottom right,
+    hsl(240, 1%, 25%) 3%,
     hsl(0, 0%, 19%) 97%
   );
   --bg-gradient-jet: linear-gradient(
-    to bottom right, 
-    hsla(240, 1%, 18%, 0.251) 0%, 
+    to bottom right,
+    hsla(240, 1%, 18%, 0.251) 0%,
     hsla(240, 2%, 11%, 0) 100%
   ), hsl(240, 2%, 13%);
   --bg-gradient-yellow-1: linear-gradient(
-    to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
+    to bottom right,
+    hsl(45, 100%, 71%) 0%,
     hsla(36, 100%, 69%, 0) 50%
   );
   --bg-gradient-yellow-2: linear-gradient(
-    135deg, 
-    hsla(45, 100%, 71%, 0.251) 0%, 
+    135deg,
+    hsla(45, 100%, 71%, 0.251) 0%,
     hsla(35, 100%, 68%, 0) 59.86%
   ), hsl(240, 2%, 13%);
   --border-gradient-onyx: linear-gradient(
-    to bottom right, 
-    hsl(0, 0%, 25%) 0%, 
+    to bottom right,
+    hsl(0, 0%, 25%) 0%,
     hsla(0, 0%, 25%, 0) 50%
   );
   --text-gradient-yellow: linear-gradient(
-    to right, 
-    hsl(45, 100%, 72%), 
+    to right,
+    hsl(45, 100%, 72%),
     hsl(35, 100%, 68%)
   );
 
-  /* solid */
-
+  /* ---------- solid colors ---------- */
   --jet: hsl(0, 0%, 22%);
   --onyx: hsl(240, 1%, 17%);
   --eerie-black-1: hsl(240, 2%, 13%);
@@ -52,14 +68,9 @@
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
 
-  /**
-   * typography
-   */
-
-  /* font-family */
+  /* ---------- typography ---------- */
   --ff-poppins: 'Poppins', sans-serif;
 
-  /* font-size */
   --fs-1: 24px;
   --fs-2: 18px;
   --fs-3: 17px;
@@ -69,36 +80,31 @@
   --fs-7: 13px;
   --fs-8: 11px;
 
-  /* font-weight */
   --fw-300: 300;
   --fw-400: 400;
   --fw-500: 500;
   --fw-600: 600;
 
-  /**
-   * shadow
-   */
-  
+  /* ---------- shadows ---------- */
   --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
   --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
   --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
   --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
   --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
 
-  /**
-   * transition
-   */
-
+  /* ---------- transitions ---------- */
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
-
 }
 
-/*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
 
-*, *::before, *::after {
+/* ==========================================================================
+   2. RESET
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -108,7 +114,21 @@ a { text-decoration: none; }
 
 li { list-style: none; }
 
-img, ion-icon, a, button, time, span { display: block; }
+img,
+ion-icon,
+a,
+button,
+time,
+span {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+html { -webkit-text-size-adjust: 100%; }
 
 button {
   font: inherit;
@@ -118,7 +138,8 @@ button {
   cursor: pointer;
 }
 
-input, textarea {
+input,
+textarea {
   display: block;
   width: 100%;
   background: none;
@@ -137,12 +158,9 @@ html { font-family: var(--ff-poppins); }
 body { background: var(--smoky-black); }
 
 
-
-
-
-/*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
+/* ==========================================================================
+   3. REUSED STYLES
+   ========================================================================== */
 
 .sidebar,
 article {
@@ -160,6 +178,8 @@ article {
   background: var(--jet);
   margin: 16px 0;
 }
+
+/* ----- icon box ----- */
 
 .icon-box {
   position: relative;
@@ -187,6 +207,8 @@ article {
 
 .icon-box ion-icon { --ionicon-stroke-width: 35px; }
 
+/* ----- article show / hide ----- */
+
 article { display: none; }
 
 article.active {
@@ -195,9 +217,11 @@ article.active {
 }
 
 @keyframes fade {
-  0% { opacity: 0; }
+  0%   { opacity: 0; }
   100% { opacity: 1; }
 }
+
+/* ----- headings ----- */
 
 .h2,
 .h3,
@@ -208,9 +232,7 @@ article.active {
 }
 
 .h2 { font-size: var(--fs-1); }
-
 .h3 { font-size: var(--fs-2); }
-
 .h4 { font-size: var(--fs-4); }
 
 .h5 {
@@ -221,6 +243,7 @@ article.active {
 .article-title {
   position: relative;
   padding-bottom: 7px;
+  margin-bottom: 30px;
 }
 
 .article-title::after {
@@ -234,9 +257,11 @@ article.active {
   border-radius: 3px;
 }
 
+/* ----- custom scrollbar ----- */
+
 .has-scrollbar::-webkit-scrollbar {
-  width: 5px; /* for vertical scrollbar */
-  height: 5px; /* for horizontal scrollbar */
+  width: 5px;   /* vertical */
+  height: 5px;  /* horizontal */
 }
 
 .has-scrollbar::-webkit-scrollbar-track {
@@ -250,6 +275,8 @@ article.active {
 }
 
 .has-scrollbar::-webkit-scrollbar-button { width: 20px; }
+
+/* ----- content card ----- */
 
 .content-card {
   position: relative;
@@ -272,12 +299,9 @@ article.active {
 }
 
 
-
-
-
-/*-----------------------------------*\
-  #MAIN
-\*-----------------------------------*/
+/* ==========================================================================
+   4. MAIN
+   ========================================================================== */
 
 main {
   margin: 15px 12px;
@@ -286,12 +310,9 @@ main {
 }
 
 
-
-
-
-/*-----------------------------------*\
-  #SIDEBAR
-\*-----------------------------------*/
+/* ==========================================================================
+   5. SIDEBAR
+   ========================================================================== */
 
 .sidebar {
   margin-bottom: 15px;
@@ -300,7 +321,7 @@ main {
   transition: var(--transition-2);
 }
 
-.sidebar.active { max-height: 405px; }
+.sidebar.active { max-height: 520px; }
 
 .sidebar-info {
   position: relative;
@@ -310,10 +331,13 @@ main {
   gap: 15px;
 }
 
+/* ----- avatar ----- */
+
 .avatar-box {
-  width: 120px;
-  height: 120px;
-  border-radius: 24px;
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -324,9 +348,12 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover; /* biar gak gepeng */
-  border-radius: 24px;
+  border-radius: inherit;
 }
 
+/* ----- name & title ----- */
+
+.info-content { min-width: 0; }
 
 .info-content .name {
   color: var(--white-2);
@@ -345,6 +372,8 @@ main {
   padding: 3px 12px;
   border-radius: 8px;
 }
+
+/* ----- "show contacts" button ----- */
 
 .info_more-btn {
   position: absolute;
@@ -377,6 +406,8 @@ main {
 .info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
 
 .info_more-btn span { display: none; }
+
+/* ----- expandable contacts ----- */
 
 .sidebar-info_more {
   opacity: 0;
@@ -421,6 +452,13 @@ main {
 
 .contact-info address { font-style: normal; }
 
+/* di HP email boleh turun baris biar gak kepotong; di desktop dikunci 1 baris (lihat >1250px) */
+.contact-info .contact-link {
+  overflow-wrap: anywhere;
+}
+
+/* ----- social links ----- */
+
 .social-list {
   display: flex;
   justify-content: flex-start;
@@ -435,16 +473,12 @@ main {
   font-size: 18px;
 }
 
-
 .social-item .social-link:hover { color: var(--light-gray); }
 
 
-
-
-
-/*-----------------------------------*\
-  #NAVBAR
-\*-----------------------------------*/
+/* ==========================================================================
+   6. NAVBAR
+   ========================================================================== */
 
 .navbar {
   position: fixed;
@@ -456,6 +490,7 @@ main {
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
   box-shadow: var(--shadow-2);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   z-index: 5;
 }
 
@@ -472,6 +507,7 @@ main {
   font-size: var(--fs-8);
   padding: 20px 7px;
   transition: color var(--transition-1);
+  white-space: nowrap;
 }
 
 .navbar-link:hover,
@@ -480,12 +516,9 @@ main {
 .navbar-link.active { color: var(--orange-yellow-crayola); }
 
 
-
-
-
-/*-----------------------------------*\
-  #ABOUT
-\*-----------------------------------*/
+/* ==========================================================================
+   7. ABOUT
+   ========================================================================== */
 
 .about .article-title { margin-bottom: 15px; }
 
@@ -499,10 +532,7 @@ main {
 .about-text p { margin-bottom: 15px; }
 
 
-
-/**
- * #service 
- */
+/* ----- service ----- */
 
 .service { margin-bottom: 35px; }
 
@@ -543,14 +573,53 @@ main {
 .service-item-text {
   color: var(--light-gray);
   font-size: var(--fs-6);
-  font-weight: var(--fw-3);
+  font-weight: var(--fw-300);
   line-height: 1.6;
 }
 
 
-/**
- * #testimonials 
- */
+/* ----- hobbies (2 kolom di desktop, 1 kolom di HP) ----- */
+
+.hobbies .service-list {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.hobbies .service-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  border-radius: 16px;
+  transition: 0.3s ease;
+}
+
+.hobbies .service-item:hover { transform: translateY(-5px); }
+
+.hobbies .service-icon-box {
+  font-size: 28px;
+  color: #ffdb70;
+  flex-shrink: 0;
+}
+
+/* glow line di bawah card */
+.hobbies .service-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffdb70, transparent);
+  transition: 0.6s;
+}
+
+@media (max-width: 600px) {
+  .hobbies .service-list { grid-template-columns: 1fr; }
+}
+
+
+/* ----- testimonials ----- */
 
 .testimonials { margin-bottom: 30px; }
 
@@ -562,8 +631,7 @@ main {
   align-items: flex-start;
   gap: 15px;
   margin: 0 -15px;
-  padding: 25px 15px;
-  padding-bottom: 35px;
+  padding: 25px 15px 35px;
   overflow-x: auto;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
@@ -585,8 +653,26 @@ main {
   box-shadow: var(--shadow-1);
 }
 
-.testimonials-item-title { 
-  margin-bottom: 7px; 
+/* foto testimoni (class di HTML: testimonial-avatar-box) - berlaku di semua ukuran layar */
+.testimonial-avatar-box {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #2a2a2a;
+}
+
+.testimonial-avatar-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.testimonials-item-title {
+  margin-bottom: 7px;
   color: #fff;
 }
 
@@ -603,9 +689,7 @@ main {
 }
 
 
-/**
- * #testimonials-modal
- */
+/* ----- testimonials modal ----- */
 
 .modal-container {
   position: fixed;
@@ -717,9 +801,7 @@ main {
 }
 
 
-/**
- * #clients 
- */
+/* ----- clients ----- */
 
 .clients { margin-bottom: 15px; }
 
@@ -730,7 +812,6 @@ main {
   gap: 15px;
   margin: 0 -15px;
   padding: 25px;
-  padding-bottom: 25px;
   overflow-x: auto;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
@@ -752,19 +833,11 @@ main {
 .clients-item img:hover { filter: grayscale(0); }
 
 
+/* ==========================================================================
+   8. RESUME
+   ========================================================================== */
 
-
-
-/*-----------------------------------*\
-  #RESUME
-\*-----------------------------------*/
-
-.article-title { margin-bottom: 30px; }
-
-
-/**
- * education and experience 
- */
+/* ----- education & experience timeline ----- */
 
 .timeline { margin-bottom: 30px; }
 
@@ -796,6 +869,7 @@ main {
   line-height: 1.6;
 }
 
+/* garis vertikal */
 .timeline-item:not(:last-child)::before {
   content: "";
   position: absolute;
@@ -806,6 +880,7 @@ main {
   background: var(--jet);
 }
 
+/* titik */
 .timeline-item::after {
   content: "";
   position: absolute;
@@ -825,15 +900,7 @@ main {
 }
 
 
-/**
- * skills 
- */
-
-/* ===============================
-   SKILLS ICON (REPLACE PROGRESS)
-================================ */
-
-/* ================= HARD SKILLS ================= */
+/* ----- hard skills (icon grid) ----- */
 
 .skills-icons {
   display: grid;
@@ -843,7 +910,8 @@ main {
 }
 
 .skills-icons .skills-item {
-  position: relative; /* WAJIB */
+  position: relative; /* wajib untuk ::before */
+  z-index: 1;         /* biar ::before (z-index -1) gak ketutup background */
   background: var(--border-gradient-onyx);
   border-radius: 14px;
   padding: 20px 10px;
@@ -879,34 +947,33 @@ main {
   font-weight: 500;
 }
 
-/* ================= SOFT SKILLS ================= */
+
+/* ----- soft skills (cards) ----- */
 
 .soft-skills {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
+  gap: 16px;
   margin-top: 50px;
 }
 
 .card {
-  flex: 1 1 180px;
-  background: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 18px;
-
+  flex: 1 1 140px;
   display: flex;
   flex-direction: column; /* icon di atas */
   align-items: center;
   gap: 10px;
-
+  padding: 18px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
   color: #fff;
   transition: 0.3s;
 }
 
 .card i {
   font-size: 22px;
-  color: #facc15; /* kuning */
+  color: #facc15;
 }
 
 .card span {
@@ -920,13 +987,11 @@ main {
 }
 
 
+/* ==========================================================================
+   9. PORTFOLIO
+   ========================================================================== */
 
-
-
-
-/*-----------------------------------*\
-  #PORTFOLIO
-\*-----------------------------------*/
+/* ----- filter (mobile dropdown) ----- */
 
 .filter-list { display: none; }
 
@@ -985,6 +1050,8 @@ main {
 
 .select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
 
+/* ----- project grid ----- */
+
 .project-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -1000,7 +1067,7 @@ main {
 }
 
 @keyframes scaleUp {
-  0% { transform: scale(0.5); }
+  0%   { transform: scale(0.5); }
   100% { transform: scale(1); }
 }
 
@@ -1078,15 +1145,16 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
 }
+
+/* ----- project card & button ----- */
+
 .project-card {
   background: var(--eerie-black-2);
   border-radius: 16px;
   overflow: hidden;
 }
 
-.project-content {
-  padding: 14px;
-}
+.project-content { padding: 14px; }
 
 .project-btn {
   display: inline-flex;
@@ -1108,36 +1176,37 @@ main {
 }
 
 
-
-
-
-/*-----------------------------------*\
-  #BLOG
-\*-----------------------------------*/
+/* ==========================================================================
+   10. CERTIFICATES
+   ========================================================================== */
 
 .certificate-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: 15px;
   list-style: none;
-  padding: 40px;
+  padding: 10px 0 0;
 }
 
 .certificate-img {
   position: relative;
+  aspect-ratio: 4 / 3;            /* semua card landscape, ukuran sama */
   border-radius: 12px;
   overflow: hidden;
+  background: var(--eerie-black-1);
   border: 2px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
 }
 
 .certificate-img img {
   width: 100%;
+  height: 100%;
   display: block;
+  object-fit: contain;            /* sertifikat portrait tetap utuh, gak kepotong */
   transition: transform 0.4s ease;
 }
 
-/* OVERLAY */
+/* overlay "View" */
 .certificate-img::after {
   content: "View";
   position: absolute;
@@ -1145,7 +1214,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: white;
   font-size: 14px;
   letter-spacing: 1px;
@@ -1153,19 +1222,16 @@ main {
   transition: 0.3s;
 }
 
-.certificate-img:hover img {
-  transform: scale(1.08);
-}
+.certificate-img:hover img { transform: scale(1.08); }
 
-.certificate-img:hover::after {
-  opacity: 1;
-}
+.certificate-img:hover::after { opacity: 1; }
 
-/* ================= MODAL ================= */
+/* ----- certificate modal (pakai :target) ----- */
+
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.95);
+  background: rgba(0, 0, 0, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1175,46 +1241,41 @@ main {
   z-index: 999;
 }
 
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .modal img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 94vw;
+  max-height: 85vh;
+  object-fit: contain;
   border-radius: 12px;
   animation: zoom 0.3s ease;
 }
 
 @keyframes zoom {
   from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  to   { transform: scale(1);   opacity: 1; }
 }
 
-/* ACTIVE TARGET */
-.modal:target {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* CLOSE BUTTON */
 .close {
   position: absolute;
-  top: 20px;
-  right: 35px;
+  top: 10px;
+  right: 20px;
+  padding: 0 10px;
+  line-height: 1.2;
   font-size: 45px;
   color: white;
   text-decoration: none;
 }
 
-.close:hover {
-  color: orange;
-}
+.close:hover { color: orange; }
 
 
-
-
-
-
-/*-----------------------------------*\
-  #CONTACT
-\*-----------------------------------*/
+/* ==========================================================================
+   11. CONTACT
+   ========================================================================== */
 
 .mapbox {
   position: relative;
@@ -1232,7 +1293,6 @@ main {
   width: 100%;
   height: 100%;
   border: none;
-  /* filter: grayscale(1) invert(1); */
 }
 
 .contact-form { margin-bottom: 10px; }
@@ -1260,6 +1320,8 @@ main {
 
 .form-input:focus { border-color: var(--orange-yellow-crayola); }
 
+.form-input:focus:invalid { border-color: var(--bittersweet-shimmer); }
+
 textarea.form-input {
   min-height: 100px;
   height: 120px;
@@ -1269,8 +1331,6 @@ textarea.form-input {
 }
 
 textarea.form-input::-webkit-resizer { display: none; }
-
-.form-input:focus:invalid { border-color: var(--bittersweet-shimmer); }
 
 .form-btn {
   position: relative;
@@ -1316,56 +1376,46 @@ textarea.form-input::-webkit-resizer { display: none; }
 .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
 
 
+/* ==========================================================================
+   12. RESPONSIVE
+   ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   < 400px (HP kecil)
+   -------------------------------------------------------------------------- */
 
+@media (max-width: 400px) {
+  .navbar-list { padding: 0 4px; }
+  .navbar-link { padding: 18px 8px; font-size: 12px; }
+  .skills-icons { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .soft-skills { gap: 10px; }
+  .card { padding: 14px 10px; }
+  .info-content .name { font-size: 18px; }
+  .info-content .title { font-size: 11px; padding: 3px 10px; }
+}
 
-/*-----------------------------------*\
-  #RESPONSIVE
-\*-----------------------------------*/
-
-/**
- * responsive larger than 450px screen
- */
+/* --------------------------------------------------------------------------
+   > 450px
+   -------------------------------------------------------------------------- */
 
 @media (min-width: 450px) {
 
-  /**
-   * client
-   */
-
+  /* clients */
   .clients-item { min-width: calc(33.33% - 10px); }
 
-
-
-  /**
-   * #PORTFOLIO, BLOG 
-   */
-
-  .project-img,
-  .blog-banner-box { height: auto; }
-
+  /* portfolio */
+  .project-img { height: auto; }
 }
 
 
-
-
-
-/**
- * responsive larger than 580px screen
- */
+/* --------------------------------------------------------------------------
+   > 580px
+   -------------------------------------------------------------------------- */
 
 @media (min-width: 580px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
-
+  /* ----- custom properties ----- */
   :root {
-
-    /**
-     * typography
-     */
-
     --fs-1: 32px;
     --fs-2: 24px;
     --fs-3: 26px;
@@ -1373,16 +1423,11 @@ textarea.form-input::-webkit-resizer { display: none; }
     --fs-6: 15px;
     --fs-7: 15px;
     --fs-8: 12px;
-
   }
 
-
-
-  /**
-   * #REUSED STYLE
-   */
-
-  .sidebar, article {
+  /* ----- reused styles ----- */
+  .sidebar,
+  article {
     width: 520px;
     margin-inline: auto;
     padding: 30px;
@@ -1405,23 +1450,13 @@ textarea.form-input::-webkit-resizer { display: none; }
     font-size: 18px;
   }
 
-
-
-  /**
-   * #MAIN
-   */
-
+  /* ----- main ----- */
   main {
     margin-top: 60px;
     margin-bottom: 100px;
   }
 
-
-
-  /**
-   * #SIDEBAR
-   */
-
+  /* ----- sidebar ----- */
   .sidebar {
     max-height: 180px;
     margin-bottom: 30px;
@@ -1431,7 +1466,11 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
+  .avatar-box {
+    width: 120px;
+    height: 120px;
+    border-radius: 30px;
+  }
 
   .avatar-box img { width: 120px; }
 
@@ -1461,30 +1500,19 @@ textarea.form-input::-webkit-resizer { display: none; }
     width: calc(100% - 64px);
   }
 
-
-
-  /**
-   * #NAVBAR
-   */
-
+  /* ----- navbar ----- */
   .navbar { border-radius: 20px 20px 0 0; }
 
   .navbar-list { gap: 20px; }
 
   .navbar-link { --fs-8: 14px; }
 
-
-
-  /**
-   * #ABOUT
-   */
-
+  /* ----- about ----- */
   .about .article-title { margin-bottom: 20px; }
 
   .about-text { margin-bottom: 40px; }
 
   /* service */
-
   .service-item {
     display: flex;
     justify-content: flex-start;
@@ -1501,50 +1529,27 @@ textarea.form-input::-webkit-resizer { display: none; }
   .service-content-box { text-align: left; }
 
   /* testimonials */
-
   .testimonials-title { margin-bottom: 25px; }
 
   .testimonials-list {
     gap: 30px;
     margin: 0 -30px;
-    padding: 30px;
-    padding-bottom: 35px;
+    padding: 30px 30px 35px;
   }
 
-  /* CARD */
-.content-card {
-  position: relative;
-  padding: 30px 25px 25px;
-  border-radius: 20px;
-  background: linear-gradient(
-    to bottom right,
-    #2b2b2b,
-    #1f1f1f
-  );
-}
+  .content-card {
+    padding: 30px 25px 25px;
+    border-radius: 20px;
+    background: linear-gradient(to bottom right, #2b2b2b, #1f1f1f);
+  }
 
-/* AVATAR WRAPPER */
-.testimonial-avatar-box {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #2a2a2a;
+  .testimonial-avatar-box {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 15px; /* masuk ke dalam border card */
+  }
 
-  /* KUNCI: MASUK KE DALAM BORDER */
-  margin-bottom: 15px;
-}
-
-/* FOTO */
-.testimonial-avatar-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-
+  /* testimonials modal */
   .modal-img-wrapper {
     display: flex;
     flex-direction: column;
@@ -1565,7 +1570,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   /* clients */
-
   .clients-list {
     gap: 50px;
     margin: 0 -30px;
@@ -1575,12 +1579,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .clients-item { min-width: calc(33.33% - 35px); }
 
-
-
-  /**
-   * #RESUME
-   */
-
+  /* ----- resume ----- */
   .timeline-list { margin-left: 65px; }
 
   .timeline-item:not(:last-child)::before { left: -40px; }
@@ -1593,24 +1592,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .skills-item:not(:last-child) { margin-bottom: 25px; }
 
+  /* ----- portfolio ----- */
+  .project-img { border-radius: 16px; }
 
-
-  /**
-   * #PORTFOLIO, BLOG
-   */
-
-  .project-img, .blog-banner-box { border-radius: 16px; }
-
-  .blog-posts-list { gap: 30px; }
-
-  .blog-content { padding: 25px; }
-
-
-
-  /**
-   * #CONTACT
-   */
-
+  /* ----- contact ----- */
   .mapbox {
     height: 380px;
     border-radius: 18px;
@@ -1631,54 +1616,33 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .form-btn ion-icon { font-size: 18px; }
-
 }
 
 
-
-
-
-/**
- * responsive larger than 768px screen
- */
+/* --------------------------------------------------------------------------
+   > 768px
+   -------------------------------------------------------------------------- */
 
 @media (min-width: 768px) {
 
-  /**
-   * REUSED STYLE
-   */
+  /* ----- reused styles ----- */
+  .sidebar,
+  article { width: 700px; }
 
-  .sidebar, article { width: 700px; }
+  .certificate-list { padding: 20px 0 0; gap: 20px; }
 
   .has-scrollbar::-webkit-scrollbar-button { width: 100px; }
 
-
-
-  /**
-   * SIDEBAR
-   */
-
+  /* ----- sidebar ----- */
   .contacts-list {
     grid-template-columns: 1fr 1fr;
     gap: 30px 15px;
   }
 
-
-
-  /**
-   * NAVBAR
-   */
-
+  /* ----- navbar ----- */
   .navbar-link { --fs-8: 15px; }
 
-
-
-  /**
-   * ABOUT
-   */
-
-  /* testimonials modal */
-
+  /* ----- about: testimonials modal ----- */
   .testimonials-modal {
     gap: 35px;
     max-width: 680px;
@@ -1686,12 +1650,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .modal-avatar-box img { width: 80px; }
 
-
-
-  /**
-   * PORTFOLIO
-   */
-
+  /* ----- portfolio ----- */
   .article-title { padding-bottom: 20px; }
 
   .filter-select-box { display: none; }
@@ -1715,68 +1674,39 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .filter-item button.active { color: var(--orange-yellow-crayola); }
 
-  /* portfolio and blog grid */
+  .project-list { grid-template-columns: 1fr 1fr; }
 
-  .project-list, .blog-posts-list { grid-template-columns: 1fr 1fr; }
-
-
-
-  /**
-   * CONTACT
-   */
-
+  /* ----- contact ----- */
   .input-wrapper { grid-template-columns: 1fr 1fr; }
 
   .form-btn {
     width: max-content;
     margin-left: auto;
   }
-  
 }
 
 
-
-
-
-/**
- * responsive larger than 1024px screen
- */
+/* --------------------------------------------------------------------------
+   > 1024px
+   -------------------------------------------------------------------------- */
 
 @media (min-width: 1024px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
-
+  /* ----- custom properties ----- */
   :root {
-
-    /**
-    * shadow
-    */
-
     --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.125);
     --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.125);
     --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.125);
-
   }
 
-
-
-  /**
-   * REUSED STYLE
-   */
-
-  .sidebar, article {
+  /* ----- reused styles ----- */
+  .sidebar,
+  article {
     width: 950px;
     box-shadow: var(--shadow-5);
   }
 
-
-
-  /**
-   * MAIN 
-   */
-
+  /* ----- main ----- */
   main { margin-bottom: 60px; }
 
   .main-content {
@@ -1785,12 +1715,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin: auto;
   }
 
-
-
-  /**
-   * NAVBAR
-   */
-
+  /* ----- navbar ----- */
   .navbar {
     position: absolute;
     bottom: auto;
@@ -1810,125 +1735,23 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .navbar-link { font-weight: var(--fw-500); }
 
-
-
-  /**
-   * ABOUT
-   */
-/* ===== HOBBIES GRID 2x2 ===== */
-
-.hobbies .service-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-  gap: 20px;
-}
-
-/* CARD STYLE */
-.hobbies .service-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 25px;
-  border-radius: 16px;
-  transition: 0.3s ease;
-}
-
-/* ICON */
-.hobbies .service-icon-box {
-  font-size: 28px;
-  color: #ffdb70;
-  flex-shrink: 0;
-}
-
-/* HOVER */
-.hobbies .service-item:hover {
-  transform: translateY(-5px);
-}
-
-/* RESPONSIVE: HP JADI 1 KOLOM */
-@media (max-width: 600px) {
-  .hobbies .service-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Hobbies Icon Style
-.hobbies .service-icon-box {
-  font-size: 32px;
-  color: #ffdb70;
-  transition: 0.4s ease;
-} */
-
-/* Card hover effect */
-/* .hobbies .service-item {
-  transition: 0.4s ease;
-  position: relative;
-  overflow: hidden;
-} */
-
-/* Icon animation */
-/* .hobbies .service-item:hover .service-icon-box {
-  transform: scale(1.2) rotate(5deg);
-  color: #fff;
-} */
-
-/* Glow line (nyambung effect) */
-.hobbies .service-item::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 50%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ffdb70, transparent);
-  transition: 0.6s;
-}
-
-.hobbies .service-item:hover::after {
-  left: 50%;
-}
-
-
-  /* testimonials */
-
+  /* ----- about ----- */
   .testimonials-item { min-width: calc(50% - 15px); }
-
-  /* clients */
 
   .clients-item { min-width: calc(25% - 38px); }
 
-
-
-  /**
-   * PORTFOLIO
-   */
-
+  /* ----- portfolio ----- */
   .project-list { grid-template-columns: repeat(3, 1fr); }
-
-
-
-  /**
-   * BLOG
-   */
-
-  .blog-banner-box { height: 230px; }
-
 }
 
 
-
-
-
-/**
- * responsive larger than 1250px screen
- */
+/* --------------------------------------------------------------------------
+   > 1250px (sidebar jadi kolom sticky di kiri)
+   -------------------------------------------------------------------------- */
 
 @media (min-width: 1250px) {
 
-  /**
-   * RESET
-   */
-
+  /* ----- custom scrollbar body ----- */
   body::-webkit-scrollbar { width: 20px; }
 
   body::-webkit-scrollbar-track { background: var(--smoky-black); }
@@ -1945,22 +1768,13 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   body::-webkit-scrollbar-button { height: 60px; }
 
-
-
-  /**
-   * REUSED STYLE
-   */
-
-  .sidebar, article { width: auto; }
+  /* ----- reused styles ----- */
+  .sidebar,
+  article { width: auto; }
 
   article { min-height: 100%; }
 
-
-
-  /**
-   * MAIN
-   */
-
+  /* ----- main ----- */
   main {
     max-width: 1200px;
     margin-inline: auto;
@@ -1976,12 +1790,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin: 0;
   }
 
-
-
-  /**
-   * SIDEBAR
-   */
-
+  /* ----- sidebar ----- */
   .sidebar {
     position: sticky;
     top: 60px;
@@ -2012,15 +1821,15 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .contacts-list { grid-template-columns: 1fr; }
 
-  .contact-info :is(.contact-link) {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
   .contact-info :is(.contact-link, time, address) {
     --fs-7: 14px;
     font-weight: var(--fw-300);
+  }
+
+  /* email tetap satu baris; font diperkecil sedikit biar muat di sidebar */
+  .contact-info .contact-link {
+    white-space: nowrap;
+    font-size: 13px;
   }
 
   .separator:last-of-type {
@@ -2028,14 +1837,6 @@ textarea.form-input::-webkit-resizer { display: none; }
     opacity: 0;
   }
 
-  .social-list { justify-content: center; }
-
-
-
-  /**
-	 * RESUME
-	 */
-
+  /* ----- resume ----- */
   .timeline-text { max-width: 700px; }
-
 }
